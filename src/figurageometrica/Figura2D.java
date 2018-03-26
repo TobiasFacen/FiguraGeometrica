@@ -18,6 +18,7 @@ public abstract class Figura2D extends FiguraGeometrica{
      * @param posy La posicion en el eje y de la figura.
      */
     public Figura2D(double posx, double posy){
+        super();
         pos = new Posicion2D(posx, posy);
     }
     /**

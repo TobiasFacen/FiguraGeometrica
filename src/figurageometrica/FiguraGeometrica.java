@@ -12,9 +12,10 @@ package figurageometrica;
 public abstract class FiguraGeometrica {
     /**
      * Crea una figura geometrica.
+     * Constructor vacio.
      */
     public FiguraGeometrica(){
-    
+        
     }
     /**
      * Calcula la superficie de una figura geometrica dada.
