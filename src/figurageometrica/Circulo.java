@@ -9,14 +9,18 @@ package figurageometrica;
  * Clase que representa la figura geometrica circulo.
  * @author Alumno
  */
-public class Circulo {
+public class Circulo extends Figura2D{
     //el valor del radio.
     private double radio;
     /**
      * Crea la figura geometrica circulo dado el valor de su radio
      * y las coordenadas de su posicion en el plano.
+     * @param radio el radio del circulo.
+     * @param posx la posicion en el eje x del circulo.
+     * @param posy la posicion en el eje y del circulo.
      */
-    public Circulo(){
-        
+    public Circulo(double radio, double posx, double posy){
+        super(posx, posy);
+        this.radio = radio;
     }
 }

@@ -14,9 +14,11 @@ public abstract class Figura2D extends FiguraGeometrica{
     private Posicion2D pos;
     /**
      * Crea una figura geometrica en el plano.
+     * @param posx La posicion en el eje x de la figura.
+     * @param posy La posicion en el eje y de la figura.
      */
-    public Figura2D(){
-    
+    public Figura2D(double posx, double posy){
+        pos = new Posicion2D(posx, posy);
     }
     /**
      * Calcula el perimetro de la figura geometrica recibida.

@@ -14,9 +14,12 @@ public class Posicion2D {
     /**
      * Crea una posicion en el plano de una figura con sus coordenadas
      * x e y.
+     * @param x La coordenada en el eje x.
+     * @param y La coordenada en el eje y.
      */
-    public Posicion2D(){
-    
+    public Posicion2D(double x, double y){
+        this.x = x;
+        this.y = y;
     }
     /**
      * Calcula la distancia entre dos figuras geometricas
