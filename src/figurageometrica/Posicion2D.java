@@ -22,7 +22,7 @@ public class Posicion2D {
      * Calcula la distancia entre dos figuras geometricas
      * dada su posicion en el plano.
      * @param pos la posicion de las figuras.
-     * @return aux la distancia calculada.
+     * @return aux - la distancia calculada.
      */
     public double distancia(Posicion2D pos){
         double aux = 0.0;
