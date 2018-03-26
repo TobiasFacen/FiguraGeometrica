@@ -13,6 +13,7 @@ import java.util.List;
  * @author Alumno
  */
 public class Plano {
+    //las listas de figuras geometricas.
     private static List figuras = new ArrayList<FiguraGeometrica>();
     private static List circulos = new ArrayList<Circulo>();
     private static List rectangulos = new ArrayList<Rectangulo>();

@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package figurageometrica;
-
 /**
  * Clase que representa la posicion en el plano de una figura geometrica.
  * @author Alumno
  */
 public class Posicion2D {
+    //las coordenadas de la figura en el plano.
     private double x, y;
     /**
      * Crea una posicion en el plano de una figura con sus coordenadas

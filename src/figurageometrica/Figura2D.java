@@ -10,6 +10,7 @@ package figurageometrica;
  * @author Alumno
  */
 public abstract class Figura2D extends FiguraGeometrica{
+    //la posicion en el plano.
     private Posicion2D pos;
     /**
      * Crea una figura geometrica en el plano.

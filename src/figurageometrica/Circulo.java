@@ -10,6 +10,7 @@ package figurageometrica;
  * @author Alumno
  */
 public class Circulo {
+    //el valor del radio.
     private double radio;
     /**
      * Crea la figura geometrica circulo dado el valor de su radio

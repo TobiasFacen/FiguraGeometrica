@@ -10,6 +10,7 @@ package figurageometrica;
  * @author Alumno
  */
 public class Rectangulo {
+    //los valores de los lados.
     private double lado1, lado2;
     /**
      * Crea la figura geometrica rectangulo dado el valor de sus

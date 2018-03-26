@@ -10,6 +10,7 @@ package figurageometrica;
  * @author Alumno
  */
 public class Triangulo {
+    //los valores de los lados.
     private double lado1, lado2, lado3;
     /**
      * Crea la figura geometrica triangulo dado los valores
