@@ -9,12 +9,9 @@ package figurageometrica;
  *
  * @author Alumno
  */
-public abstract class FiguraGeometrica {
-    public FiguraGeometrica(){
-    
-    }
-    public double superficie(){
-        double aux = 0.0;
-        return aux;
+public class Rectangulo {
+    private double lado1, lado2;
+    public Rectangulo(){
+        
     }
 }

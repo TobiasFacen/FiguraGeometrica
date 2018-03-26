@@ -9,11 +9,12 @@ package figurageometrica;
  *
  * @author Alumno
  */
-public abstract class FiguraGeometrica {
-    public FiguraGeometrica(){
+public abstract class Figura2D extends FiguraGeometrica{
+    private Posicion2D pos;
+    public Figura2D(){
     
     }
-    public double superficie(){
+    public double perimetro(){
         double aux = 0.0;
         return aux;
     }

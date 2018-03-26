@@ -9,11 +9,12 @@ package figurageometrica;
  *
  * @author Alumno
  */
-public abstract class FiguraGeometrica {
-    public FiguraGeometrica(){
+public class Posicion2D {
+    private double x, y;
+    public Posicion2D(){
     
     }
-    public double superficie(){
+    public double distancia(Posicion2D pos){
         double aux = 0.0;
         return aux;
     }

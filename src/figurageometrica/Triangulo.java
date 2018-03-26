@@ -10,5 +10,8 @@ package figurageometrica;
  * @author Alumno
  */
 public class Triangulo {
-    
+    private double lado1, lado2, lado3;
+    public Triangulo(){
+        
+    }
 }
