@@ -6,11 +6,15 @@
 package figurageometrica;
 
 /**
- *
+ * Clase que representa la figura geometrica circulo.
  * @author Alumno
  */
 public class Circulo {
     private double radio;
+    /**
+     * Crea la figura geometrica circulo dado el valor de su radio
+     * y las coordenadas de su posicion en el plano.
+     */
     public Circulo(){
         
     }

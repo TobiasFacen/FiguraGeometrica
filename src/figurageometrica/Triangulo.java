@@ -6,11 +6,15 @@
 package figurageometrica;
 
 /**
- *
+ * Clase que representa la figura geometrica triangulo
  * @author Alumno
  */
 public class Triangulo {
     private double lado1, lado2, lado3;
+    /**
+     * Crea la figura geometrica triangulo dado los valores
+     * de sus 3 lados y las coordenadas de su posicion en el plano.
+     */
     public Triangulo(){
         
     }

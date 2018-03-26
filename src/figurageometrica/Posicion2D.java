@@ -6,14 +6,24 @@
 package figurageometrica;
 
 /**
- *
+ * Clase que representa la posicion en el plano de una figura geometrica.
  * @author Alumno
  */
 public class Posicion2D {
     private double x, y;
+    /**
+     * Crea una posicion en el plano de una figura con sus coordenadas
+     * x e y.
+     */
     public Posicion2D(){
     
     }
+    /**
+     * Calcula la distancia entre dos figuras geometricas
+     * dada su posicion en el plano.
+     * @param pos la posicion de las figuras.
+     * @return aux la distancia calculada.
+     */
     public double distancia(Posicion2D pos){
         double aux = 0.0;
         return aux;
