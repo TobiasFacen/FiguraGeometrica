@@ -14,20 +14,22 @@ import java.util.List;
  * @author Alumno
  */
 public class Plano {
-    private List figuras = new ArrayList<FiguraGeometrica>();
-    private List circulos = new ArrayList<Circulo>();
-    private List rectangulos = new ArrayList<Rectangulo>();
+    private static List figuras = new ArrayList<FiguraGeometrica>();
+    private static List circulos = new ArrayList<Circulo>();
+    private static List rectangulos = new ArrayList<Rectangulo>();
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    public static void addCirculo(){
-        
+    public static void addCirculo(Circulo circulo){
+        figuras.add(circulo);
+        circulos.add(circulo);
     }
-    public static void addRectangulo(){
-    
+    public static void addRectangulo(Rectangulo rectangulo){
+        figuras.add(rectangulo);
+        rectangulos.add(rectangulo);
     }
     public static boolean solapamiento(Circulo circulo){
         return true;
