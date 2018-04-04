@@ -9,7 +9,7 @@ package figurageometrica;
  * Clase que representa la figura geometrica circulo.
  * @author Alumno
  */
-public class Circulo extends Figura2D{
+public abstract class Circulo extends Figura2D{
     //el valor del radio.
     private double radio;
     /**
@@ -19,8 +19,12 @@ public class Circulo extends Figura2D{
      * @param posx la posicion en el eje x del circulo.
      * @param posy la posicion en el eje y del circulo.
      */
-    public Circulo(double radio, double posx, double posy){
+    public Circulo(double radio, double posx, double posy) throws DimensionIncorrectaException{
         super(posx, posy);
         this.radio = radio;
+    }
+    @Override
+    protected void calcularExtremos(){
+    
     }
 }

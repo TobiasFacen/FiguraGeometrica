@@ -9,7 +9,7 @@ package figurageometrica;
  * Clase que representa la figura geometrica triangulo
  * @author Alumno
  */
-public class Triangulo extends Figura2D{
+public abstract class Triangulo extends Figura2D{
     //los valores de los lados.
     private double lado1, lado2, lado3;
     /**
@@ -22,10 +22,14 @@ public class Triangulo extends Figura2D{
      * @param posy La posicion en el eje y del triangulo.
      */
     public Triangulo(double lado1, double lado2, double lado3,
-            double posx, double posy){
+            double posx, double posy) throws DimensionIncorrectaException{
         super(posx, posy);
         this.lado1 = lado1;
         this.lado2 = lado2;
         this.lado3 = lado3;
+    }
+    @Override
+    protected void calcularExtremos(){
+    
     }
 }

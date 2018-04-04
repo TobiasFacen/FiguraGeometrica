@@ -11,13 +11,16 @@ package figurageometrica;
 public class Posicion2D {
     //las coordenadas de la figura en el plano.
     private double x, y;
+    private double limMinX = -1000, limMaxX = 1000;
+    private double limMinY = -1000, limMaxY = 1000;
     /**
      * Crea una posicion en el plano de una figura con sus coordenadas
      * x e y.
      * @param x La coordenada en el eje x.
      * @param y La coordenada en el eje y.
+     * @throws FueraDelPLanoException
      */
-    public Posicion2D(double x, double y){
+    public Posicion2D(double x, double y) throws FueraDelPlanoException{
         this.x = x;
         this.y = y;
     }

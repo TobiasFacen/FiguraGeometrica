@@ -9,7 +9,7 @@ package figurageometrica;
  * Clase que representa la figura geometrica rectangulo.
  * @author Alumno
  */
-public class Rectangulo extends Figura2D{
+public abstract class Rectangulo extends Figura2D{
     //los valores de los lados.
     private double lado1, lado2;
     /**
@@ -21,9 +21,13 @@ public class Rectangulo extends Figura2D{
      * @param posy La posicion en el eje y del rectangulo.
      */
     public Rectangulo(double lado1, double lado2,
-            double posx, double posy){
+            double posx, double posy) throws DimensionIncorrectaException{
         super(posx, posy);
         this.lado1 = lado1;
         this.lado2 = lado2;
+    }
+    @Override
+    protected void calcularExtremos(){
+        
     }
 }
