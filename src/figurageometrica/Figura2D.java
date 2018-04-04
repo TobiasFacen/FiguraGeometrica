@@ -5,8 +5,6 @@
  */
 package figurageometrica;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Clase que representa una figura en el plano.
