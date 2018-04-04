@@ -5,6 +5,9 @@
  */
 package figurageometrica;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  * Clase que representa una figura en el plano.
  * @author Alumno
@@ -37,7 +40,22 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
     }
     protected abstract void calcularExtremos();
     private void verificarSiEstaDentroDelPlano(){
-        
+        calcularExtremos();
+    }
+    @Override
+    public void moverArriba(double distancia){
+        double y, yAux;
+        yAux = getPos().getY();
+        y = yAux + distancia;
+        Posicion2D posicionAuxiliar, posicionOriginal;
+        posicionOriginal = getPos();
+        try {
+            posicionAuxiliar = new Posicion2D(posicionOriginal.getX(), y);
+            setPos(posicionAuxiliar);
+            verificarSiEstaDentroDelPlano();
+        } catch (FueraDelPlanoException e) {
+            setPos(posicionOriginal);
+        }
     }
 
     /**
@@ -45,5 +63,12 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
      */
     public Posicion2D getPos() {
         return pos;
+    }
+
+    /**
+     * @param pos the pos to set
+     */
+    public void setPos(Posicion2D pos) {
+        this.pos = pos;
     }
 }
