@@ -25,6 +25,39 @@ public abstract class Circulo extends Figura2D{
     }
     @Override
     protected void calcularExtremos(){
-    
+        double x, y, xAux, yAux;
+        Posicion2D extremoSuperior, extremoInferior, 
+                extremoDerecho, extremoIzquierdo, posicionAuxiliar;
+        posicionAuxiliar = getPos();
+        x = posicionAuxiliar.getX();
+        y = posicionAuxiliar.getY();
+        yAux = y + radio;
+        try{
+            extremoSuperior = new Posicion2D(x, yAux);
+            yAux = 0;
+        }catch(Exception e){
+        
+        }
+        yAux = y - radio;
+        try{
+            extremoInferior = new Posicion2D(x, yAux);
+            yAux = 0;
+        }catch(Exception e){
+        
+        }
+        xAux = x + radio;
+        try{
+            extremoDerecho = new Posicion2D(xAux, y);
+            xAux = 0;
+        }catch(Exception e){
+        
+        }
+        xAux = x - radio;
+        try{
+            extremoIzquierdo = new Posicion2D(xAux, y);
+            xAux = 0;
+        }catch(Exception e){
+        
+        }
     }
 }

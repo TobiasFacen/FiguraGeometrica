@@ -18,7 +18,8 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
      * @param posy La posicion en el eje y de la figura.
      * @throws DimensionIncorrectaException
      */
-    public Figura2D(double posx, double posy) throws DimensionIncorrectaException{
+    public Figura2D(double posx, double posy) 
+            throws DimensionIncorrectaException{
         super();
         try{
             pos = new Posicion2D(posx, posy);
@@ -37,5 +38,12 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
     protected abstract void calcularExtremos();
     private void verificarSiEstaDentroDelPlano(){
         
+    }
+
+    /**
+     * @return the pos
+     */
+    public Posicion2D getPos() {
+        return pos;
     }
 }

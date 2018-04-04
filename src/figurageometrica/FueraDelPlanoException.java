@@ -10,5 +10,7 @@ package figurageometrica;
  * @author Alumno
  */
 public class FueraDelPlanoException extends Exception{
+    public FueraDelPlanoException(){
     
+    }
 }

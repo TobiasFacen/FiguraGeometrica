@@ -28,6 +28,8 @@ public abstract class Rectangulo extends Figura2D{
     }
     @Override
     protected void calcularExtremos(){
-        
+        double x, y, xAux, yAux;
+        Posicion2D pos, extremoSuperiorDerecho, extremoSuperiorIzquierdo,
+                extremoInferiorDerecho, extremoInferiorIzquierdo;
     }
 }

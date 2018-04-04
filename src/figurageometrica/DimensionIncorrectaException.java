@@ -10,5 +10,7 @@ package figurageometrica;
  * @author Alumno
  */
 public class DimensionIncorrectaException extends Exception{
+    public DimensionIncorrectaException(){
     
+    }
 }
