@@ -63,11 +63,14 @@ public class Plano {
     }
     public static void ordenarPorSuperficie(){
         double superficie;
+        List figura;
+        figura = getFiguras();
         Map superficies = new HashMap<Double, FiguraGeometrica>();
-        for(FiguraGeometrica f : figuras){
+        for(Figura2D f : figura){
             superficie = f.superficie();
             if(superficies.containsKey(superficie)){
-            
+                superficie = superficie + f.getNroOrden();
+                superficies.put(superficie, f);
             }else{
                 superficies.put(superficie, f);
             }
@@ -84,5 +87,8 @@ public class Plano {
     }
     public static void listarPorSuperficie(){
     
+    }
+    public static List getFiguras(){
+        return figuras;
     }
 }
