@@ -17,6 +17,8 @@ public class Plano {
     private static List figuras = new ArrayList<FiguraGeometrica>();
     private static List circulos = new ArrayList<Circulo>();
     private static List rectangulos = new ArrayList<Rectangulo>();
+    private static List superficies = new ArrayList<FiguraGeometrica>();
+    private static List perimetros = new ArrayList<FiguraGeometrica>();
     /**
      * @param args the command line arguments
      */
@@ -58,5 +60,20 @@ public class Plano {
      */
     public static boolean solapamiento(Rectangulo rectangulo){
         return true;
+    }
+    public static void ordenarPorSuperficie(){
+    
+    }
+    public static void ordenarPorPerimetro(){
+    
+    }
+    public static void listarFiguras(){
+    
+    }
+    public static void listarPorPerimetro(){
+    
+    }
+    public static void listarPorSuperficie(){
+    
     }
 }
