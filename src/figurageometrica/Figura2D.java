@@ -5,6 +5,9 @@
  */
 package figurageometrica;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  * Clase que representa una figura en el plano.
@@ -37,7 +40,8 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
         return aux;
     }
     protected abstract void calcularExtremos();
-    private void verificarSiEstaDentroDelPlano(){
+    private void verificarSiEstaDentroDelPlano() 
+            throws FueraDelPlanoException{
         calcularExtremos();
     }
     @Override
@@ -53,6 +57,61 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
             verificarSiEstaDentroDelPlano();
         } catch (FueraDelPlanoException e) {
             setPos(posicionOriginal);
+        }
+    }
+    @Override
+    public void moverAbajo(double distancia){
+        Posicion2D posAux, posOrig = getPos();
+        try {
+            posAux = new Posicion2D(posOrig.getX(), posOrig.getY()-distancia);
+            setPos(posAux);
+            verificarSiEstaDentroDelPlano();
+            
+        } catch (FueraDelPlanoException ex) {
+            setPos(posOrig);
+        }
+    }
+    @Override
+    public void moverDerecha(double distancia){
+        Posicion2D posAux, posOrig = getPos();
+        try{
+            posAux = new Posicion2D(posOrig.getX()+distancia, posOrig.getY());
+            setPos(posAux);
+            verificarSiEstaDentroDelPlano();
+        }catch(FueraDelPlanoException e){
+            setPos(posOrig);
+        }
+    }
+    @Override
+    public void moverIzquierda(double distancia){
+        Posicion2D posAux, posOrig = getPos();
+        try{
+            posAux = new Posicion2D(posOrig.getX()-distancia, posOrig.getY());
+            setPos(posAux);
+            verificarSiEstaDentroDelPlano();
+        }catch(FueraDelPlanoException e){
+            setPos(posOrig);
+        }
+    }
+    @Override
+    public void mover(double distanciaX, double distanciaY){
+        Posicion2D posOrig = getPos(), posAux;
+        try{
+            posAux = new Posicion2D(distanciaX, distanciaY);
+            setPos(posAux);
+            verificarSiEstaDentroDelPlano();
+        }catch(FueraDelPlanoException e){
+            setPos(posOrig);
+        }
+    }
+    @Override
+    public void mover(Posicion2D pos){
+        Posicion2D posOrig = getPos();
+        try{
+            setPos(pos);
+            verificarSiEstaDentroDelPlano();
+        }catch(FueraDelPlanoException e){
+            setPos(posOrig);
         }
     }
 
