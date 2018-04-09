@@ -23,7 +23,7 @@ public abstract class Rectangulo extends Figura2D{
      */
     public Rectangulo(double lado1, double lado2,
             double posx, double posy) throws DimensionIncorrectaException{
-        super(posx, posy);
+        super(posx, posy, "Rectangulo");
         this.base = lado1;
         this.altura = lado2;
     }
@@ -71,5 +71,17 @@ public abstract class Rectangulo extends Figura2D{
         }catch(Exception e){
         
         }
+    }
+    @Override
+    protected double perimetro(){
+        double perimetro;
+        perimetro = (2*base)+(2*altura);
+        return perimetro;
+    }
+    @Override
+    protected double superficie(){
+        double superficie;
+        superficie = base*altura;
+        return superficie;
     }
 }
