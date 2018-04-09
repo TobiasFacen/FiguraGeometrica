@@ -5,6 +5,7 @@
  */
 package figurageometrica;
 
+import static java.lang.Math.PI;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,16 +17,20 @@ import java.util.logging.Logger;
 public abstract class Figura2D extends FiguraGeometrica implements Movil{
     //la posicion en el plano.
     private Posicion2D pos;
+    private int nroOrden = 0;
+    private String id;
     /**
      * Crea una figura geometrica en el plano.
      * @param posx La posicion en el eje x de la figura.
      * @param posy La posicion en el eje y de la figura.
      * @throws DimensionIncorrectaException
      */
-    public Figura2D(double posx, double posy) 
+    public Figura2D(double posx, double posy, String nombreClase) 
             throws DimensionIncorrectaException{
         super();
         try{
+            nroOrden = getNroOrden() + 1;
+            id = "" + nombreClase + " " + nroOrden;
             pos = new Posicion2D(posx, posy);
         }catch(Exception e){
         
@@ -33,12 +38,10 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
     }
     /**
      * Calcula el perimetro de la figura geometrica recibida.
+     * @param radio
      * @return aux El perimetro de la figura geometrica.
      */
-    public double perimetro(){
-        double aux = 0.0;
-        return aux;
-    }
+    protected abstract double perimetro();
     protected abstract void calcularExtremos();
     private void verificarSiEstaDentroDelPlano() 
             throws FueraDelPlanoException{
@@ -127,5 +130,8 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
      */
     public void setPos(Posicion2D pos) {
         this.pos = pos;
+    }
+    public int getNroOrden(){
+        return nroOrden;
     }
 }

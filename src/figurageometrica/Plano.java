@@ -7,7 +7,9 @@ package figurageometrica;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Alumno
@@ -17,8 +19,6 @@ public class Plano {
     private static List figuras = new ArrayList<FiguraGeometrica>();
     private static List circulos = new ArrayList<Circulo>();
     private static List rectangulos = new ArrayList<Rectangulo>();
-    private static List superficies = new ArrayList<FiguraGeometrica>();
-    private static List perimetros = new ArrayList<FiguraGeometrica>();
     /**
      * @param args the command line arguments
      */
@@ -61,11 +61,12 @@ public class Plano {
     public static boolean solapamiento(Rectangulo rectangulo){
         return true;
     }
-    public static void ordenarPorSuperficie(){
-    
+    public static void ordenarPorSuperficie(List<FiguraGeometrica> lista){
+        double superficie;
+        Map superficies = new HashMap<Double, FiguraGeometrica>();
     }
-    public static void ordenarPorPerimetro(){
-    
+    public static void ordenarPorPerimetro(List lista){
+        Map perimetros = new HashMap<Double, FiguraGeometrica>();
     }
     public static void listarFiguras(){
     

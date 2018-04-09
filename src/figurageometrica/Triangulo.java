@@ -5,6 +5,8 @@
  */
 package figurageometrica;
 
+import static java.lang.Math.sqrt;
+
 /**
  * Clase que representa la figura geometrica triangulo
  * @author Alumno
@@ -23,7 +25,7 @@ public abstract class Triangulo extends Figura2D{
      */
     public Triangulo(double lado1, double lado2, double lado3,
             double posx, double posy) throws DimensionIncorrectaException{
-        super(posx, posy);
+        super(posx, posy, "Triangulo");
         this.lado1 = lado1;
         this.lado2 = lado2;
         this.lado3 = lado3;
@@ -31,5 +33,20 @@ public abstract class Triangulo extends Figura2D{
     @Override
     protected void calcularExtremos(){
     
+    }
+    @Override
+    protected double perimetro(){
+        double perimetro;
+        perimetro = lado1 + lado2 + lado3;
+        return perimetro;
+    }
+    @Override
+    protected double superficie(){
+        double superficie, semiperimetro, auxiliar;
+        semiperimetro = ((lado1+lado2+lado3)/2);
+        auxiliar =  semiperimetro*(semiperimetro-lado1)*(semiperimetro-lado2)*
+                (semiperimetro-lado3);
+        superficie = sqrt(auxiliar);
+        return superficie;
     }
 }

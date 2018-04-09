@@ -5,6 +5,9 @@
  */
 package figurageometrica;
 
+import static java.lang.Math.PI;
+import static java.lang.Math.sqrt;
+
 /**
  * Clase que representa una figura geometrica.
  * @author Alumno
@@ -21,8 +24,5 @@ public abstract class FiguraGeometrica {
      * Calcula la superficie de una figura geometrica dada.
      * @return aux la superficie de la figura geometrica.
      */
-    public double superficie(){
-        double aux = 0.0;
-        return aux;
-    }
+    protected abstract double superficie();
 }

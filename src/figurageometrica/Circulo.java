@@ -5,6 +5,8 @@
  */
 package figurageometrica;
 
+import static java.lang.Math.PI;
+
 /**
  * Clase que representa la figura geometrica circulo.
  * @author Alumno
@@ -22,8 +24,20 @@ public abstract class Circulo extends Figura2D{
      */
     public Circulo(double radio, double posx, double posy) 
             throws DimensionIncorrectaException{
-        super(posx, posy);
+        super(posx, posy, "Circulo");
         this.radio = radio;
+    }
+    @Override
+    protected double superficie(){
+        double superficie;
+        superficie = radio*radio*PI;
+        return superficie;
+    }
+    @Override
+    protected double perimetro(){
+        double perimetro;
+        perimetro = 2*radio*PI;
+        return perimetro;
     }
     @Override
     protected void calcularExtremos(){
