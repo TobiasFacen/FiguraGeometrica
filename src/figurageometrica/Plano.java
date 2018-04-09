@@ -61,9 +61,17 @@ public class Plano {
     public static boolean solapamiento(Rectangulo rectangulo){
         return true;
     }
-    public static void ordenarPorSuperficie(List<FiguraGeometrica> lista){
+    public static void ordenarPorSuperficie(){
         double superficie;
         Map superficies = new HashMap<Double, FiguraGeometrica>();
+        for(FiguraGeometrica f : figuras){
+            superficie = f.superficie();
+            if(superficies.containsKey(superficie)){
+            
+            }else{
+                superficies.put(superficie, f);
+            }
+        }
     }
     public static void ordenarPorPerimetro(List lista){
         Map perimetros = new HashMap<Double, FiguraGeometrica>();
