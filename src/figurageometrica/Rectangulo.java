@@ -24,8 +24,12 @@ public abstract class Rectangulo extends Figura2D{
     public Rectangulo(double lado1, double lado2,
             double posx, double posy) throws DimensionIncorrectaException{
         super(posx, posy, "Rectangulo");
-        this.base = lado1;
-        this.altura = lado2;
+        if(lado1<=0||lado2<=0){
+            throw new DimensionIncorrectaException();
+        }else{
+            base = lado1;
+            altura = lado2;
+        }
     }
     /**
      * Calcula la posicion de los extremos del rectangulo.
@@ -105,9 +109,14 @@ public abstract class Rectangulo extends Figura2D{
     /**
      * Cambia el valor de la base del rectangulo.
      * @param base El valor de la base a cambiar.
+     * @throws DimensionIncorrectaException Si la dimension es incorrecta.
      */
-    public void setBase(double base) {
-        this.base = base;
+    public void setBase(double base) throws DimensionIncorrectaException{
+        if(base<=0){
+            throw new DimensionIncorrectaException();
+        }else{
+            this.base = base;
+        }
     }
 
     /**
@@ -120,8 +129,13 @@ public abstract class Rectangulo extends Figura2D{
     /**
      * Cambia el valor de la altura de rectangulo.
      * @param altura El valor de altura a cambiar del rectangulo.
+     * @throws DimensionIncorrectaException Si la dimension es incorrecta.
      */
-    public void setAltura(double altura) {
-        this.altura = altura;
+    public void setAltura(double altura) throws DimensionIncorrectaException{
+        if(altura<=0){
+            throw new DimensionIncorrectaException();
+        }else{
+            this.altura = altura;
+        }
     }
 }

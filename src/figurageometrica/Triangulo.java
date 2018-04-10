@@ -27,9 +27,17 @@ public abstract class Triangulo extends Figura2D{
     public Triangulo(double lado1, double lado2, double lado3,
             double posx, double posy) throws DimensionIncorrectaException{
         super(posx, posy, "Triangulo");
-        this.lado1 = lado1;
-        this.lado2 = lado2;
-        this.lado3 = lado3;
+        if(lado1<=0){
+            throw new DimensionIncorrectaException();
+        }else if(lado2<=0){
+            throw new DimensionIncorrectaException();
+        }else if(lado3<=0){
+            throw new DimensionIncorrectaException();
+        }else{
+            this.lado1 = lado1;
+            this.lado2 = lado2;
+            this.lado3 = lado3;
+        }
     }
     /**
      * Calcula posicion de los extremos del triangulo.
@@ -72,9 +80,14 @@ public abstract class Triangulo extends Figura2D{
     /**
      * Cambia el valor del primer lado del triangulo.
      * @param lado1 El valor a cambiar del primer lado del triangulo.
+     * @throws DimensionIncorrectaException Si la dimension es incorrecta.
      */
-    public void setLado1(double lado1) {
-        this.lado1 = lado1;
+    public void setLado1(double lado1) throws DimensionIncorrectaException{
+        if(lado1<=0){
+            throw new DimensionIncorrectaException();
+        }else{
+            this.lado1 = lado1;
+        }
     }
 
     /**
@@ -87,9 +100,14 @@ public abstract class Triangulo extends Figura2D{
     /**
      * Cambia el valor del segundo lado del triangulo.
      * @param lado2 El valor a cambiar del segundo lado del triangulo.
+     * @throws DimensionIncorrectaException Si la dimension es incorrecta.
      */
-    public void setLado2(double lado2) {
-        this.lado2 = lado2;
+    public void setLado2(double lado2) throws DimensionIncorrectaException{
+        if(lado2<=0){
+            throw new DimensionIncorrectaException();
+        }else{
+            this.lado2 = lado2;
+        }
     }
 
     /**
@@ -102,8 +120,13 @@ public abstract class Triangulo extends Figura2D{
     /**
      * Cambia el valor del tercer lado del triangulo.
      * @param lado3 El valor a cambiar del tercer lado del triangulo.
+     * @throws DimensionIncorrectaException Si la dimension es incorrecta.
      */
-    public void setLado3(double lado3) {
-        this.lado3 = lado3;
+    public void setLado3(double lado3) throws DimensionIncorrectaException{
+        if(lado3<=0){
+            throw new DimensionIncorrectaException();
+        }else{
+            this.lado3 = lado3;
+        }
     }
 }

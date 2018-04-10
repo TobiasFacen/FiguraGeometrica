@@ -29,17 +29,22 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
     public Figura2D(double posx, double posy, String nombreClase) 
             throws DimensionIncorrectaException{
         super();
-        try{
-            nroOrden = getNroOrden() + 1;
-            id = "" + nombreClase + " " + nroOrden;
-            pos = new Posicion2D(posx, posy);
-        }catch(Exception e){
-        
-        }
+        if(posx<0||posy<0){
+            throw new DimensionIncorrectaException();
+        }else{
+            try{
+                nroOrden = getNroOrden() + 1;
+                id = "" + nombreClase + " " + nroOrden;
+                pos = new Posicion2D(posx, posy);
+            }catch(FueraDelPlanoException e){
+                System.out.println("No se pudo crear la figura.");
+            }
+        }    
     }
     /**
      * Metodo abstracto implementado por cada una de las Figuras Geometricas
      * para calcular su perimetro.
+     * @return perimetro El perimetro calculado por cada una de las figuras.
      */
     protected abstract double perimetro();
     /**
@@ -54,7 +59,11 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
      */
     private void verificarSiEstaDentroDelPlano() 
             throws FueraDelPlanoException{
-        calcularExtremos();
+        try{
+            calcularExtremos();
+        }catch(Exception e){
+            throw new FueraDelPlanoException();
+        }
     }
     /**
      * Traslada a la figura geometrica hacia arriba a travez del plano partiendo

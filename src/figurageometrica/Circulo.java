@@ -24,7 +24,12 @@ public abstract class Circulo extends Figura2D{
     public Circulo(double radio, double posx, double posy) 
             throws DimensionIncorrectaException{
         super(posx, posy, "Circulo");
-        this.radio = radio;
+        if(radio<=0){
+            throw new DimensionIncorrectaException();
+        }else{
+            this.radio = radio;
+        }
+        
     }
     /**
      * Calcula la superficie del circulo.
@@ -96,8 +101,13 @@ public abstract class Circulo extends Figura2D{
     /**
      * Cambia el valor del radio del circulo.
      * @param radio El valor a cambiar del circulo.
+     * @throws DimensionIncorrectaException Si el valor del radio es incorrecto.
      */
-    public void setRadio(double radio) {
-        this.radio = radio;
+    public void setRadio(double radio) throws DimensionIncorrectaException{
+       if(radio<=0){
+           throw new DimensionIncorrectaException();
+       }else{
+           this.radio = radio;
+       }
     }
 }

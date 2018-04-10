@@ -21,8 +21,16 @@ public class Posicion2D {
      * queda fuera del plano.
      */
     public Posicion2D(double x, double y) throws FueraDelPlanoException{
-        this.x = x;
-        this.y = y;
+       if(limMinX<x&&x<limMaxX){
+           this.x = x;
+       }else{
+           throw new FueraDelPlanoException();
+       }
+       if(limMinY<y&&y<limMaxY){
+           this.y = y;
+       }else{
+           throw new FueraDelPlanoException();
+       }
     }
     /**
      * Calcula la distancia entre dos figuras geometricas
@@ -45,9 +53,15 @@ public class Posicion2D {
     /**
      * Cambia el valor de la coordenada en el eje x de la posicion de la figura.
      * @param x El valor de coordenada a cambiar.
+     * @throws FueraDelPlanoException Si el valor de la coordenada queda fuera
+     * del plano.
      */
-    public void setX(double x) {
-        this.x = x;
+    public void setX(double x) throws FueraDelPlanoException{
+        if(limMinX<x&&x<limMaxX){
+            this.x = x;
+        }else{
+            throw new FueraDelPlanoException();
+        }
     }
 
     /**
@@ -60,9 +74,15 @@ public class Posicion2D {
     /**
      * Cambia el valor de la coordenada en el eje x de la posicion de la figura.
      * @param y El valor de coordenada a cambiar.
+     * @throws FueraDelPlanoException Si el valor de la coordenada queda fuera
+     * del plano.
      */
-    public void setY(double y) {
-        this.y = y;
+    public void setY(double y) throws FueraDelPlanoException{
+        if(limMinY<y&&y<limMaxY){
+            this.y = y;
+        }else{
+            throw new FueraDelPlanoException();
+        }
     }
 
     /**
