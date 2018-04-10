@@ -10,37 +10,7 @@ package figurageometrica;
  * @author Alumno
  */
 public abstract class Rectangulo extends Figura2D{
-
-    /**
-     * @return the base
-     */
-    public double getBase() {
-        return base;
-    }
-
-    /**
-     * @param base the base to set
-     */
-    public void setBase(double base) {
-        this.base = base;
-    }
-
-    /**
-     * @return the altura
-     */
-    public double getAltura() {
-        return altura;
-    }
-
-    /**
-     * @param altura the altura to set
-     */
-    public void setAltura(double altura) {
-        this.altura = altura;
-    }
-    //los valores de los lados.
     private double base;
-    //los valores de los lados.
     private double altura;
     /**
      * Crea la figura geometrica rectangulo dado el valor de sus
@@ -49,7 +19,7 @@ public abstract class Rectangulo extends Figura2D{
      * @param lado2 La altura del rectangulo.
      * @param posx La posicion en el eje x del rectangulo.
      * @param posy La posicion en el eje y del rectangulo.
-     * @throws DimensionIncorrectaException
+     * @throws DimensionIncorrectaException Si la dimension es incorrecta
      */
     public Rectangulo(double lado1, double lado2,
             double posx, double posy) throws DimensionIncorrectaException{
@@ -57,6 +27,9 @@ public abstract class Rectangulo extends Figura2D{
         this.base = lado1;
         this.altura = lado2;
     }
+    /**
+     * Calcula la posicion de los extremos del rectangulo.
+     */
     @Override
     protected void calcularExtremos(){
         double x, y, xAux, yAux;
@@ -102,16 +75,53 @@ public abstract class Rectangulo extends Figura2D{
         
         }
     }
+    /**
+     * Calcula el perimetro del rectangulo.
+     * @return perimetro El perimetro calculado del rectangulo.
+     */
     @Override
     protected double perimetro(){
         double perimetro;
         perimetro = (2*getBase())+(2*getAltura());
         return perimetro;
     }
+    /**
+     * Calcula la superficie del rectangulo.
+     * @return superficie La superficie calculada del rectangulo.
+     */
     @Override
     protected double superficie(){
         double superficie;
         superficie = getBase()*getAltura();
         return superficie;
+    }
+     /**
+     * @return base El valor de la base del rectangulo.
+     */
+    public double getBase() {
+        return base;
+    }
+
+    /**
+     * Cambia el valor de la base del rectangulo.
+     * @param base El valor de la base a cambiar.
+     */
+    public void setBase(double base) {
+        this.base = base;
+    }
+
+    /**
+     * @return altura El valor de la altura del rectangulo.
+     */
+    public double getAltura() {
+        return altura;
+    }
+
+    /**
+     * Cambia el valor de la altura de rectangulo.
+     * @param altura El valor de altura a cambiar del rectangulo.
+     */
+    public void setAltura(double altura) {
+        this.altura = altura;
     }
 }

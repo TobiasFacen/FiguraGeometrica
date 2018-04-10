@@ -6,7 +6,8 @@
 package figurageometrica;
 
 /**
- *
+ * Interfaz implementada por cada una de las figuras geometricas para
+ * desplazarse a travez del plano.
  * @author Alumno
  */
 public interface Movil {

@@ -6,7 +6,8 @@
 package figurageometrica;
 
 /**
- *
+ * Se crea cuando la dimension recibida para crear una nueva figura geometrica
+ * son menores a cero o iguales a cero.
  * @author Alumno
  */
 public class DimensionIncorrectaException extends Exception{

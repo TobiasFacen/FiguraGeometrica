@@ -12,21 +12,6 @@ import static java.lang.Math.PI;
  * @author Alumno
  */
 public abstract class Circulo extends Figura2D{
-
-    /**
-     * @return the radio
-     */
-    public double getRadio() {
-        return radio;
-    }
-
-    /**
-     * @param radio the radio to set
-     */
-    public void setRadio(double radio) {
-        this.radio = radio;
-    }
-    //el valor del radio.
     private double radio;
     /**
      * Crea la figura geometrica circulo dado el valor de su radio
@@ -34,25 +19,36 @@ public abstract class Circulo extends Figura2D{
      * @param radio el radio del circulo.
      * @param posx la posicion en el eje x del circulo.
      * @param posy la posicion en el eje y del circulo.
-     * @throws DimensionIncorrectaException
+     * @throws DimensionIncorrectaException Si la dimension es incorrecta.
      */
     public Circulo(double radio, double posx, double posy) 
             throws DimensionIncorrectaException{
         super(posx, posy, "Circulo");
         this.radio = radio;
     }
+    /**
+     * Calcula la superficie del circulo.
+     * @return superficie La superficie calculada del circulo.
+     */
     @Override
     protected double superficie(){
         double superficie;
         superficie = getRadio()*getRadio()*PI;
         return superficie;
     }
+    /**
+     * Calcula el perimetro del circulo.
+     * @return perimetro El perimetro calculado del circulo.
+     */
     @Override
     protected double perimetro(){
         double perimetro;
         perimetro = 2*getRadio()*PI;
         return perimetro;
     }
+    /**
+     * Calcula la posicion de los extremos del circulo.
+     */
     @Override
     protected void calcularExtremos(){
         double x, y, xAux, yAux;
@@ -89,5 +85,19 @@ public abstract class Circulo extends Figura2D{
         }catch(Exception e){
         
         }
+    }
+    /**
+     * @return radio El valor del radio del circulo.
+     */
+    public double getRadio() {
+        return radio;
+    }
+
+    /**
+     * Cambia el valor del radio del circulo.
+     * @param radio El valor a cambiar del circulo.
+     */
+    public void setRadio(double radio) {
+        this.radio = radio;
     }
 }

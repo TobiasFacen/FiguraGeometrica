@@ -21,8 +21,7 @@ public abstract class FiguraGeometrica {
         
     }
     /**
-     * Calcula la superficie de una figura geometrica dada.
-     * @return aux la superficie de la figura geometrica.
+     * Metodo abstracto a implementar por cada una de las figuras geometricas.
      */
     protected abstract double superficie();
 }

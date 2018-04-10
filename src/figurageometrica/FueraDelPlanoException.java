@@ -6,7 +6,7 @@
 package figurageometrica;
 
 /**
- *
+ * Se crea cuando una figura esta fuera de los limites del plano.
  * @author Alumno
  */
 public class FueraDelPlanoException extends Exception{

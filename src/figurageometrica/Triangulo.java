@@ -22,7 +22,7 @@ public abstract class Triangulo extends Figura2D{
      * @param lado3 El valor del tercer lado del triangulo.
      * @param posx La posicion en el eje x del triangulo.
      * @param posy La posicion en el eje y del triangulo.
-     * @throws DimensionIncorrectaException
+     * @throws DimensionIncorrectaException Si la dimension es incorrecta.
      */
     public Triangulo(double lado1, double lado2, double lado3,
             double posx, double posy) throws DimensionIncorrectaException{
@@ -31,63 +31,77 @@ public abstract class Triangulo extends Figura2D{
         this.lado2 = lado2;
         this.lado3 = lado3;
     }
+    /**
+     * Calcula posicion de los extremos del triangulo.
+     */
     @Override
     protected void calcularExtremos(){
     
     }
+    /**
+     * Calcula el perimetro del triangulo.
+     * @return perimetro El perimetro calculado del triangulo.
+     */
     @Override
     protected double perimetro(){
         double perimetro;
         perimetro = getLado1() + getLado2() + getLado3();
         return perimetro;
     }
+    /**
+     * Calcula la superficie del triangulo.
+     * @return superficie La superficie calculada del triangulo.
+     */
     @Override
     protected double superficie(){
         double superficie, semiperimetro, auxiliar;
         semiperimetro = ((getLado1()+getLado2()+getLado3())/2);
-        auxiliar =  semiperimetro*(semiperimetro-getLado1())*(semiperimetro-getLado2())*
-                (semiperimetro-getLado3());
+        auxiliar =  semiperimetro*(semiperimetro-getLado1())*
+                (semiperimetro-getLado2())*(semiperimetro-getLado3());
         superficie = sqrt(auxiliar);
         return superficie;
     }
 
     /**
-     * @return the lado1
+     * @return lado1 El valor del primer lado del triangulo.
      */
     public double getLado1() {
         return lado1;
     }
 
     /**
-     * @param lado1 the lado1 to set
+     * Cambia el valor del primer lado del triangulo.
+     * @param lado1 El valor a cambiar del primer lado del triangulo.
      */
     public void setLado1(double lado1) {
         this.lado1 = lado1;
     }
 
     /**
-     * @return the lado2
+     * @return lado2 El valor del segundo lado del triangulo.
      */
     public double getLado2() {
         return lado2;
     }
 
     /**
-     * @param lado2 the lado2 to set
+     * Cambia el valor del segundo lado del triangulo.
+     * @param lado2 El valor a cambiar del segundo lado del triangulo.
      */
     public void setLado2(double lado2) {
         this.lado2 = lado2;
     }
 
     /**
-     * @return the lado3
+     * @return lado3 El valor del tercer lado del triangulo.
      */
     public double getLado3() {
         return lado3;
     }
 
     /**
-     * @param lado3 the lado3 to set
+     * Cambia el valor del tercer lado del triangulo.
+     * @param lado3 El valor a cambiar del tercer lado del triangulo.
      */
     public void setLado3(double lado3) {
         this.lado3 = lado3;

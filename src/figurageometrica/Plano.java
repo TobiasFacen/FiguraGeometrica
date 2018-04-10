@@ -8,10 +8,10 @@ package figurageometrica;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * @author Alumno
@@ -63,10 +63,15 @@ public class Plano {
     public static boolean solapamiento(Rectangulo rectangulo){
         return true;
     }
+    /**
+     * Ordena las figuras geometricas de la lista de figuras segun el valor de 
+     * su superfice.
+     * @return ordenPorSuperficie La lista con las figuras ordenadas.
+     */
     public static List ordenarPorSuperficie(){
         double superficie;
         List ordenPorSuperficie = new ArrayList<FiguraGeometrica>();
-        Map superficies = new HashMap<Double, FiguraGeometrica>();
+        Map superficies = new TreeMap<Double, FiguraGeometrica>();
         Iterator it = getFiguras().iterator();
         while(it.hasNext()){
             Figura2D figura = (Figura2D)it.next();
@@ -85,8 +90,13 @@ public class Plano {
         }
         return ordenPorSuperficie;
     }
+    /**
+     * Ordena las figuras geometricas de la lista de figuras segun el valor
+     * de su perimetro.
+     * @return ordenPorPerimetro La lista con las figuras ordenadas.
+     */
     public static List ordenarPorPerimetro(){
-        Map perimetros = new HashMap<Double, FiguraGeometrica>();
+        Map perimetros = new TreeMap<Double, FiguraGeometrica>();
         double perimetro;
         List ordenPorPerimetro = new ArrayList<FiguraGeometrica>();
         Iterator it = getFiguras().iterator();
@@ -107,6 +117,9 @@ public class Plano {
         }
         return ordenPorPerimetro;
     }
+    /**
+     * Muestra por pantalla la lista de figuras sin orden alguno.
+     */
     public static void listarFiguras(){
         Iterator it = getFiguras().iterator();
         while(it.hasNext()){
@@ -114,6 +127,10 @@ public class Plano {
             System.out.println("" + figura.getId());
         }
     }
+    /**
+     * Muestra por pantalla la lista de figuras ordenadas por el valor de 
+     * su perimetro.
+     */
     public static void listarPorPerimetro(){
         List auxiliar = new ArrayList<FiguraGeometrica>();
         auxiliar = ordenarPorPerimetro();
@@ -123,6 +140,10 @@ public class Plano {
             System.out.println("" + figura.getId());
         }
     }
+    /**
+     * Muestra por pantalla la lista de figuras ordenadas por el valor de
+     * su superficie.
+     */
     public static void listarPorSuperficie(){
         List auxiliar = new ArrayList<FiguraGeometrica>();
         auxiliar = ordenarPorSuperficie();
@@ -132,39 +153,48 @@ public class Plano {
             System.out.println("" + figura.getId());
         }
     }
+    /**
+     * Devuelve la lista de figuras.
+     * @return figuras la lista de figuras.
+     */
     public static List getFiguras(){
         return figuras;
     }
 
     /**
-     * @param aFiguras the figuras to set
+     * Cambia la lista de figuras ya creada por la lista recibida.
+     * @param aFiguras La lista nueva de figuras a cambiar por la otra.
      */
     public static void setFiguras(List aFiguras) {
         figuras = aFiguras;
     }
 
     /**
-     * @return the circulos
+     * Devuelve la lista de las figuras geometricas <code>Circulo</code>.
+     * @return circulos La lista de circulos.
      */
     public static List getCirculos() {
         return circulos;
     }
 
     /**
-     * @param aCirculos the circulos to set
+     * Cambia la lista de circulos ya creada por la lista recibida.
+     * @param aCirculos La lista nueva de figuras a cambiar por la otra.
      */
     public static void setCirculos(List aCirculos) {
         circulos = aCirculos;
     }
 
     /**
-     * @return the rectangulos
+     * Devuelve la lista de las figuras geometricas <code>Rectangulo</code>.
+     * @return rectangulos La lista de rectangulos.
      */
     public static List getRectangulos() {
         return rectangulos;
     }
 
     /**
+     * Cambia la lista de circulos ya creada por la lista recibida.
      * @param aRectangulos the rectangulos to set
      */
     public static void setRectangulos(List aRectangulos) {

@@ -23,7 +23,8 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
      * Crea una figura geometrica en el plano.
      * @param posx La posicion en el eje x de la figura.
      * @param posy La posicion en el eje y de la figura.
-     * @throws DimensionIncorrectaException
+     * @param nombreClase El nombre de la figura geometrica.
+     * @throws DimensionIncorrectaException Si la dimension es incorrecta.
      */
     public Figura2D(double posx, double posy, String nombreClase) 
             throws DimensionIncorrectaException{
@@ -37,16 +38,30 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
         }
     }
     /**
-     * Calcula el perimetro de la figura geometrica recibida.
-     * @param radio
-     * @return aux El perimetro de la figura geometrica.
+     * Metodo abstracto implementado por cada una de las Figuras Geometricas
+     * para calcular su perimetro.
      */
     protected abstract double perimetro();
+    /**
+     * Metodo abstracto implementado por cada una de las figuras geometricas
+     * para calcular su superficie.
+     */
     protected abstract void calcularExtremos();
+    /**
+     * Verifica si la figura geometrica esta contenida en el plano.
+     * @throws FueraDelPlanoException Si la figura no esta 
+     * contenida en el plano.
+     */
     private void verificarSiEstaDentroDelPlano() 
             throws FueraDelPlanoException{
         calcularExtremos();
     }
+    /**
+     * Traslada a la figura geometrica hacia arriba a travez del plano partiendo
+     * de su posicion original. Si al moverse queda fuera del plano vuelve a su
+     * posicion original.
+     * @param distancia La cantidad de pixeles que se va a mover la figura.
+     */
     @Override
     public void moverArriba(double distancia){
         double y, yAux;
@@ -62,6 +77,12 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
             setPos(posicionOriginal);
         }
     }
+    /**
+     * Traslada a la figura geometrica hacia abajo a travez del plano partiendo
+     * de su posicion original. Si al moverse queda fuera del plano vuelve a su
+     * posicion original.
+     * @param distancia La cantidad de pixeles que se va a mover la figura.
+     */
     @Override
     public void moverAbajo(double distancia){
         Posicion2D posAux, posOrig = getPos();
@@ -74,6 +95,12 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
             setPos(posOrig);
         }
     }
+    /**
+     * Traslada la figura geometrica hacia la derecha a travez del plano
+     * partiendo de su posicion original. Si al moverse queda fuera del plano
+     * vuelve a su posicion original.
+     * @param distancia La cantidad de pixeles que se va a mover la figura.
+     */
     @Override
     public void moverDerecha(double distancia){
         Posicion2D posAux, posOrig = getPos();
@@ -85,6 +112,12 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
             setPos(posOrig);
         }
     }
+    /**
+     * Traslada la figura geometrica hacia la izquierda a travez del plano
+     * partiendo de su posicion original. Si al moverse queda fuera del plano
+     * vuelve a su posicion original.
+     * @param distancia La cantidad de pixeles que se va a mover la figura.
+     */
     @Override
     public void moverIzquierda(double distancia){
         Posicion2D posAux, posOrig = getPos();
@@ -96,6 +129,15 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
             setPos(posOrig);
         }
     }
+    /**
+     * Traslada la figura geometrica una cierta cantidad de pixeles en el eje x
+     * y otra cierta cantidad de pixeles en el eje y. Si al hacerlo quedase 
+     * fuera del plano vuelve a su posicion original.
+     * @param distanciaX La cantidad de pixeles que se va a mover la figura en 
+     * el eje x.
+     * @param distanciaY La cantidad de pixeles que se va a mover la figura en
+     * el eje y.
+     */
     @Override
     public void mover(double distanciaX, double distanciaY){
         Posicion2D posOrig = getPos(), posAux;
@@ -107,6 +149,11 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
             setPos(posOrig);
         }
     }
+    /**
+     * Traslada la figura geometrica a una nueva posicion en el plano. Si al 
+     * hacerlo quedase fuera del plano vuelve a su posicion original.
+     * @param pos La posicion donde se trasladara la figura.
+     */
     @Override
     public void mover(Posicion2D pos){
         Posicion2D posOrig = getPos();
@@ -119,38 +166,44 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
     }
 
     /**
-     * @return the pos
+     * @return pos La posicion en que se encuentra la figura en el plano.
      */
     public Posicion2D getPos() {
         return pos;
     }
 
     /**
-     * @param pos the pos to set
+     * Cambia la posicion de la figura en el plano por una nueva.
+     * @param pos La posicion a la que se cambiara la figura.
      */
     public void setPos(Posicion2D pos) {
         this.pos = pos;
     }
+    /**
+     * @return nroOrden El numero que representa el orden de la figura. 
+     */
     public int getNroOrden(){
         return nroOrden;
     }
 
     /**
-     * @return the id
+     * @return id El id de la figura.
      */
     public String getId() {
         return id;
     }
 
     /**
-     * @param nroOrden the nroOrden to set
+     * Cambia el numero de orden de la figura.
+     * @param nroOrden El nuevo numero de orden para la figura.
      */
     public void setNroOrden(int nroOrden) {
         this.nroOrden = nroOrden;
     }
 
     /**
-     * @param id the id to set
+     * Cambia el id de la figura.
+     * @param id El nuevo id para la figura.
      */
     public void setId(String id) {
         this.id = id;
