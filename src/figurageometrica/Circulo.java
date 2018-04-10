@@ -12,8 +12,22 @@ import static java.lang.Math.PI;
  * @author Alumno
  */
 public abstract class Circulo extends Figura2D{
+
+    /**
+     * @return the radio
+     */
+    public double getRadio() {
+        return radio;
+    }
+
+    /**
+     * @param radio the radio to set
+     */
+    public void setRadio(double radio) {
+        this.radio = radio;
+    }
     //el valor del radio.
-    private final double radio;
+    private double radio;
     /**
      * Crea la figura geometrica circulo dado el valor de su radio
      * y las coordenadas de su posicion en el plano.
@@ -30,13 +44,13 @@ public abstract class Circulo extends Figura2D{
     @Override
     protected double superficie(){
         double superficie;
-        superficie = radio*radio*PI;
+        superficie = getRadio()*getRadio()*PI;
         return superficie;
     }
     @Override
     protected double perimetro(){
         double perimetro;
-        perimetro = 2*radio*PI;
+        perimetro = 2*getRadio()*PI;
         return perimetro;
     }
     @Override
@@ -47,28 +61,28 @@ public abstract class Circulo extends Figura2D{
         pos = getPos();
         x = pos.getX();
         y = pos.getY();
-        yAux = y + radio;
+        yAux = y + getRadio();
         try{
             extremoSuperior = new Posicion2D(x, yAux);
             yAux = 0;
         }catch(Exception e){
         
         }
-        yAux = y - radio;
+        yAux = y - getRadio();
         try{
             extremoInferior = new Posicion2D(x, yAux);
             yAux = 0;
         }catch(Exception e){
         
         }
-        xAux = x + radio;
+        xAux = x + getRadio();
         try{
             extremoDerecho = new Posicion2D(xAux, y);
             xAux = 0;
         }catch(Exception e){
         
         }
-        xAux = x - radio;
+        xAux = x - getRadio();
         try{
             extremoIzquierdo = new Posicion2D(xAux, y);
             xAux = 0;

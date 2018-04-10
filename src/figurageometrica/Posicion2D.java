@@ -9,6 +9,34 @@ package figurageometrica;
  * @author Alumno
  */
 public class Posicion2D {
+
+    /**
+     * @param limMinX the limMinX to set
+     */
+    public void setLimMinX(double limMinX) {
+        this.limMinX = limMinX;
+    }
+
+    /**
+     * @param limMaxX the limMaxX to set
+     */
+    public void setLimMaxX(double limMaxX) {
+        this.limMaxX = limMaxX;
+    }
+
+    /**
+     * @param limMinY the limMinY to set
+     */
+    public void setLimMinY(double limMinY) {
+        this.limMinY = limMinY;
+    }
+
+    /**
+     * @param limMaxY the limMaxY to set
+     */
+    public void setLimMaxY(double limMaxY) {
+        this.limMaxY = limMaxY;
+    }
     //las coordenadas de la figura en el plano.
     private double x, y;
     private double limMinX = -1000, limMaxX = 1000;

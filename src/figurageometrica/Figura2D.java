@@ -134,4 +134,26 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
     public int getNroOrden(){
         return nroOrden;
     }
+
+    /**
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param nroOrden the nroOrden to set
+     */
+    public void setNroOrden(int nroOrden) {
+        this.nroOrden = nroOrden;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+    
 }

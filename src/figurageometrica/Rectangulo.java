@@ -10,8 +10,38 @@ package figurageometrica;
  * @author Alumno
  */
 public abstract class Rectangulo extends Figura2D{
+
+    /**
+     * @return the base
+     */
+    public double getBase() {
+        return base;
+    }
+
+    /**
+     * @param base the base to set
+     */
+    public void setBase(double base) {
+        this.base = base;
+    }
+
+    /**
+     * @return the altura
+     */
+    public double getAltura() {
+        return altura;
+    }
+
+    /**
+     * @param altura the altura to set
+     */
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
     //los valores de los lados.
-    private final double base, altura;
+    private double base;
+    //los valores de los lados.
+    private double altura;
     /**
      * Crea la figura geometrica rectangulo dado el valor de sus
      * lados y las coordenadas de su posicion en el plano.
@@ -35,8 +65,8 @@ public abstract class Rectangulo extends Figura2D{
         pos = getPos();
         x = pos.getX();
         y = pos.getY();
-        xAux = x + (base/2);
-        yAux = y + (altura/2);
+        xAux = x + (getBase()/2);
+        yAux = y + (getAltura()/2);
         try{
             extremoSuperiorDerecho = new Posicion2D(xAux, yAux);
             xAux = 0;
@@ -44,8 +74,8 @@ public abstract class Rectangulo extends Figura2D{
         }catch(Exception e){
         
         }
-        xAux = x + (base/2);
-        yAux = y - (altura/2);
+        xAux = x + (getBase()/2);
+        yAux = y - (getAltura()/2);
         try{
             extremoInferiorDerecho = new Posicion2D(xAux, yAux);
             xAux = 0;
@@ -53,8 +83,8 @@ public abstract class Rectangulo extends Figura2D{
         }catch(Exception e){
         
         }
-        xAux = x - (base/2);
-        yAux = y - (altura/2);
+        xAux = x - (getBase()/2);
+        yAux = y - (getAltura()/2);
         try{
             extremoInferiorIzquierdo = new Posicion2D(xAux, yAux);
             xAux = 0;
@@ -62,8 +92,8 @@ public abstract class Rectangulo extends Figura2D{
         }catch(Exception e){
         
         }
-        xAux = x - (base/2);
-        yAux = y + (altura/2);
+        xAux = x - (getBase()/2);
+        yAux = y + (getAltura()/2);
         try{
             extremoSuperiorIzquierdo = new Posicion2D(xAux, yAux);
             xAux = 0;
@@ -75,13 +105,13 @@ public abstract class Rectangulo extends Figura2D{
     @Override
     protected double perimetro(){
         double perimetro;
-        perimetro = (2*base)+(2*altura);
+        perimetro = (2*getBase())+(2*getAltura());
         return perimetro;
     }
     @Override
     protected double superficie(){
         double superficie;
-        superficie = base*altura;
+        superficie = getBase()*getAltura();
         return superficie;
     }
 }
