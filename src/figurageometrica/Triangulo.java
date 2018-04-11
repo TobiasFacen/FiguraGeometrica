@@ -39,10 +39,37 @@ public abstract class Triangulo extends Figura2D{
     }
     /**
      * Calcula posicion de los extremos del triangulo.
+     * @throws FueraDelPlanoException Si alguno de los extremos de la figura
+     * queda fuera del plano.
      */
     @Override
-    protected void calcularExtremos(){
+    protected void calcularExtremos() throws FueraDelPlanoException{
         Posicion2D vertice1, vertice2, vertice3;
+        double mediana1, mediana2, mediana3, auxiliar;
+        auxiliar = (2*((lado2*lado2)+(lado3*lado3))-(lado1*lado1));
+        mediana1 = (sqrt(auxiliar))/2;
+        auxiliar = (2*((lado1*lado1)+(lado3*lado3))-(lado2*lado2));
+        mediana2 = (sqrt(auxiliar))/2;
+        auxiliar = (2*((lado1*lado1)+(lado2*lado2))-(lado3*lado3));
+        mediana3 = (sqrt(auxiliar))/2;
+        try{
+            vertice1 = new Posicion2D((((getPos().getX())*2*mediana1)/3),
+            (((getPos().getY())*2*mediana1)/3));
+        }catch(FueraDelPlanoException e){
+            throw new FueraDelPlanoException();
+        }
+        try{
+            vertice2 = new Posicion2D((((getPos().getX())*2*mediana2)/3),
+            (((getPos().getY())*2*mediana2)/3));
+        }catch(FueraDelPlanoException e){
+            throw new FueraDelPlanoException();
+        }
+        try{
+            vertice3 = new Posicion2D((((getPos().getX())*2*mediana3)/3),
+            (((getPos().getY())*2*mediana3)/3));
+        }catch(FueraDelPlanoException e){
+            throw new FueraDelPlanoException();
+        }
     }
     /**
      * Calcula el perimetro del triangulo.

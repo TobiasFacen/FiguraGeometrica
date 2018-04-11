@@ -106,7 +106,6 @@ public abstract class Rectangulo extends Figura2D{
     public double getBase() {
         return base;
     }
-
     /**
      * Cambia el valor de la base del rectangulo.
      * @param base El valor de la base a cambiar.
@@ -119,14 +118,12 @@ public abstract class Rectangulo extends Figura2D{
             this.base = base;
         }
     }
-
     /**
      * @return altura El valor de la altura del rectangulo.
      */
     public double getAltura() {
         return altura;
     }
-
     /**
      * Cambia el valor de la altura de rectangulo.
      * @param altura El valor de altura a cambiar del rectangulo.

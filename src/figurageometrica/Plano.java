@@ -66,18 +66,14 @@ public class Plano {
      * @return ordenPorSuperficie La lista con las figuras ordenadas.
      */
     public static List ordenarPorSuperficie(){
-        double superficie;
+        String nombre;
         List ordenPorSuperficie = new ArrayList<FiguraGeometrica>();
-        Map superficies = new TreeMap<Double, FiguraGeometrica>();
+        Map superficies = new TreeMap<String, FiguraGeometrica>();
         Iterator it = getFiguras().iterator();
         while(it.hasNext()){
             Figura2D figura = (Figura2D)it.next();
-            superficie = figura.superficie();
-            while(superficies.containsKey(superficie)){
-                superficie = superficie + figura.getNroOrden();
-                superficies.put(superficie, figura);
-            }
-            superficies.put(superficie, figura);
+            nombre = "" + figura.superficie() + " " + figura.getId();
+            superficies.put(nombre, figura);
         }
         Collection auxiliar = superficies.values();
         it = auxiliar.iterator();
@@ -93,18 +89,14 @@ public class Plano {
      * @return ordenPorPerimetro La lista con las figuras ordenadas.
      */
     public static List ordenarPorPerimetro(){
-        Map perimetros = new TreeMap<Double, FiguraGeometrica>();
-        double perimetro;
+        Map perimetros = new TreeMap<String, FiguraGeometrica>();
+        String nombre;
         List ordenPorPerimetro = new ArrayList<FiguraGeometrica>();
         Iterator it = getFiguras().iterator();
         while(it.hasNext()){
             Figura2D figura = (Figura2D)it.next();
-            perimetro = figura.perimetro();
-            while(perimetros.containsKey(perimetro)){
-                perimetro = perimetro + figura.getNroOrden();
-                perimetros.put(perimetro, figura);
-            }
-            perimetros.put(perimetro, figura);
+            nombre = "" + figura.perimetro() + " " + figura.getId();
+            perimetros.put(nombre, figura);
         }
         Collection auxiliar = perimetros.values();
         it = auxiliar.iterator();
