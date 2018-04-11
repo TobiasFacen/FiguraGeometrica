@@ -14,15 +14,20 @@ import java.util.TreeMap;
  * @author Alumno
  */
 public class Plano {
-    //las listas de figuras geometricas.
-    private static List figuras = new ArrayList<FiguraGeometrica>();
-    private static List circulos = new ArrayList<Circulo>();
-    private static List rectangulos = new ArrayList<Rectangulo>();
+    private static List figuras;
+    private static List circulos;
+    private static List rectangulos;
+    public Plano(){
+        figuras = new ArrayList<FiguraGeometrica>();
+        circulos = new ArrayList<Circulo>();
+        rectangulos = new ArrayList<Rectangulo>();
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Plano plano = new Plano();
     }
     /**
      * Agrega la figura geometrica circulo a la lista de figuras
@@ -49,7 +54,19 @@ public class Plano {
      * @return true si la figura se solapa con alguna otra. 
      */
     public static boolean solapamiento(Circulo circulo){
-        return true;
+        Iterator it = figuras.iterator();
+        boolean seSolapa = false;
+        Figura2D figura;
+        while(it.hasNext()){
+            figura = (Figura2D)it.next();
+            if(!figura.equals(circulo)){
+                if(circulo.getPos().distancia(figura.getPos())
+                        < circulo.getRadio()){
+                    seSolapa = true;
+                }
+            }
+        }
+        return seSolapa;
     }
     /**
      * Compara la posicion del rectangulo recibido con las figuras en las
@@ -58,7 +75,22 @@ public class Plano {
      * @return true si la figura se solapa con alguna otra. 
      */
     public static boolean solapamiento(Rectangulo rectangulo){
-        return true;
+        Iterator it = figuras.iterator();
+        Figura2D figura;
+        boolean seSolapa = false;
+        while(it.hasNext()){
+            figura = (Figura2D)it.next();
+            if(!figura.equals(rectangulo)){
+                if(rectangulo.getPos().distancia(figura.getPos())
+                        < rectangulo.getAltura()/2){
+                    seSolapa = true;
+                }else if(rectangulo.getPos().distancia(figura.getPos())
+                        < rectangulo.getBase()/2){
+                    seSolapa = true;
+                }
+            }
+        }
+        return seSolapa;
     }
     /**
      * Ordena las figuras geometricas de la lista de figuras segun el valor de 
