@@ -4,12 +4,6 @@
  * and open the template in the editor.
  */
 package figurageometrica;
-
-import static java.lang.Math.PI;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-
 /**
  * Clase que representa una figura en el plano.
  * @author Alumno
@@ -50,8 +44,10 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
     /**
      * Metodo abstracto implementado por cada una de las figuras geometricas
      * para calcular su superficie.
+     * @throws FueraDelPlanoException Si alguno de los extremos esta fuera del
+     * plano.
      */
-    protected abstract void calcularExtremos();
+    protected abstract void calcularExtremos() throws FueraDelPlanoException;
     /**
      * Verifica si la figura geometrica esta contenida en el plano.
      * @throws FueraDelPlanoException Si la figura no esta 
@@ -173,14 +169,12 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
             setPos(posOrig);
         }
     }
-
     /**
      * @return pos La posicion en que se encuentra la figura en el plano.
      */
     public Posicion2D getPos() {
         return pos;
     }
-
     /**
      * Cambia la posicion de la figura en el plano por una nueva.
      * @param pos La posicion a la que se cambiara la figura.
@@ -194,14 +188,12 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
     public int getNroOrden(){
         return nroOrden;
     }
-
     /**
      * @return id El id de la figura.
      */
     public String getId() {
         return id;
     }
-
     /**
      * Cambia el numero de orden de la figura.
      * @param nroOrden El nuevo numero de orden para la figura.
@@ -209,7 +201,6 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
     public void setNroOrden(int nroOrden) {
         this.nroOrden = nroOrden;
     }
-
     /**
      * Cambia el id de la figura.
      * @param id El nuevo id para la figura.
@@ -217,5 +208,4 @@ public abstract class Figura2D extends FiguraGeometrica implements Movil{
     public void setId(String id) {
         this.id = id;
     }
-    
 }

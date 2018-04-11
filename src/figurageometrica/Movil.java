@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package figurageometrica;
-
 /**
  * Interfaz implementada por cada una de las figuras geometricas para
  * desplazarse a travez del plano.

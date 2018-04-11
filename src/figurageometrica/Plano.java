@@ -4,15 +4,12 @@
  * and open the template in the editor.
  */
 package figurageometrica;
-
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-
 /**
  * @author Alumno
  */
@@ -160,7 +157,6 @@ public class Plano {
     public static List getFiguras(){
         return figuras;
     }
-
     /**
      * Cambia la lista de figuras ya creada por la lista recibida.
      * @param aFiguras La lista nueva de figuras a cambiar por la otra.
@@ -168,7 +164,6 @@ public class Plano {
     public static void setFiguras(List aFiguras) {
         figuras = aFiguras;
     }
-
     /**
      * Devuelve la lista de las figuras geometricas <code>Circulo</code>.
      * @return circulos La lista de circulos.
@@ -176,7 +171,6 @@ public class Plano {
     public static List getCirculos() {
         return circulos;
     }
-
     /**
      * Cambia la lista de circulos ya creada por la lista recibida.
      * @param aCirculos La lista nueva de figuras a cambiar por la otra.
@@ -184,7 +178,6 @@ public class Plano {
     public static void setCirculos(List aCirculos) {
         circulos = aCirculos;
     }
-
     /**
      * Devuelve la lista de las figuras geometricas <code>Rectangulo</code>.
      * @return rectangulos La lista de rectangulos.
@@ -192,10 +185,9 @@ public class Plano {
     public static List getRectangulos() {
         return rectangulos;
     }
-
     /**
      * Cambia la lista de circulos ya creada por la lista recibida.
-     * @param aRectangulos the rectangulos to set
+     * @param aRectangulos La lista nueva de rectangulos.
      */
     public static void setRectangulos(List aRectangulos) {
         rectangulos = aRectangulos;

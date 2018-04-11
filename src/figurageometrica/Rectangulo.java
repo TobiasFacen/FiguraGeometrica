@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package figurageometrica;
-
 /**
  * Clase que representa la figura geometrica rectangulo.
  * @author Alumno
@@ -33,9 +32,11 @@ public abstract class Rectangulo extends Figura2D{
     }
     /**
      * Calcula la posicion de los extremos del rectangulo.
+     * @throws FueraDelPlanoException Si alguno de los extremos esta fuera del
+     * plano.
      */
     @Override
-    protected void calcularExtremos(){
+    protected void calcularExtremos()throws FueraDelPlanoException{
         double x, y, xAux, yAux;
         Posicion2D pos, extremoSuperiorDerecho, extremoSuperiorIzquierdo,
                 extremoInferiorDerecho, extremoInferiorIzquierdo;
@@ -48,8 +49,8 @@ public abstract class Rectangulo extends Figura2D{
             extremoSuperiorDerecho = new Posicion2D(xAux, yAux);
             xAux = 0;
             yAux = 0;
-        }catch(Exception e){
-        
+        }catch(FueraDelPlanoException e){
+            throw new FueraDelPlanoException();
         }
         xAux = x + (getBase()/2);
         yAux = y - (getAltura()/2);
@@ -57,8 +58,8 @@ public abstract class Rectangulo extends Figura2D{
             extremoInferiorDerecho = new Posicion2D(xAux, yAux);
             xAux = 0;
             yAux = 0;
-        }catch(Exception e){
-        
+        }catch(FueraDelPlanoException e){
+            throw new FueraDelPlanoException();
         }
         xAux = x - (getBase()/2);
         yAux = y - (getAltura()/2);
@@ -66,8 +67,8 @@ public abstract class Rectangulo extends Figura2D{
             extremoInferiorIzquierdo = new Posicion2D(xAux, yAux);
             xAux = 0;
             yAux = 0;
-        }catch(Exception e){
-        
+        }catch(FueraDelPlanoException e){
+            throw new FueraDelPlanoException();
         }
         xAux = x - (getBase()/2);
         yAux = y + (getAltura()/2);
@@ -75,8 +76,8 @@ public abstract class Rectangulo extends Figura2D{
             extremoSuperiorIzquierdo = new Posicion2D(xAux, yAux);
             xAux = 0;
             yAux = 0;
-        }catch(Exception e){
-        
+        }catch(FueraDelPlanoException e){
+            throw new FueraDelPlanoException();
         }
     }
     /**

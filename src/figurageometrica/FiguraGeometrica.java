@@ -4,10 +4,6 @@
  * and open the template in the editor.
  */
 package figurageometrica;
-
-import static java.lang.Math.PI;
-import static java.lang.Math.sqrt;
-
 /**
  * Clase que representa una figura geometrica.
  * @author Alumno
@@ -18,7 +14,6 @@ public abstract class FiguraGeometrica {
      * Constructor vacio.
      */
     public FiguraGeometrica(){
-        
     }
     /**
      * Metodo abstracto a implementar por cada una de las figuras geometricas.

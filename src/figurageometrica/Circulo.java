@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package figurageometrica;
-
 import static java.lang.Math.PI;
-
 /**
  * Clase que representa la figura geometrica circulo.
  * @author Alumno
@@ -28,8 +26,7 @@ public abstract class Circulo extends Figura2D{
             throw new DimensionIncorrectaException();
         }else{
             this.radio = radio;
-        }
-        
+        }   
     }
     /**
      * Calcula la superficie del circulo.
@@ -53,9 +50,11 @@ public abstract class Circulo extends Figura2D{
     }
     /**
      * Calcula la posicion de los extremos del circulo.
+     * @throws FueraDelPlanoException Si alguno de los extremos de la figura
+     * esta fuera del plano.
      */
     @Override
-    protected void calcularExtremos(){
+    protected void calcularExtremos() throws FueraDelPlanoException{
         double x, y, xAux, yAux;
         Posicion2D extremoSuperior, extremoInferior, 
                 extremoDerecho, extremoIzquierdo, pos;
@@ -66,29 +65,29 @@ public abstract class Circulo extends Figura2D{
         try{
             extremoSuperior = new Posicion2D(x, yAux);
             yAux = 0;
-        }catch(Exception e){
-        
+        }catch(FueraDelPlanoException e){
+            throw new FueraDelPlanoException();
         }
         yAux = y - getRadio();
         try{
             extremoInferior = new Posicion2D(x, yAux);
             yAux = 0;
-        }catch(Exception e){
-        
+        }catch(FueraDelPlanoException e){
+            throw new FueraDelPlanoException();
         }
         xAux = x + getRadio();
         try{
             extremoDerecho = new Posicion2D(xAux, y);
             xAux = 0;
-        }catch(Exception e){
-        
+        }catch(FueraDelPlanoException e){
+            throw new FueraDelPlanoException();
         }
         xAux = x - getRadio();
         try{
             extremoIzquierdo = new Posicion2D(xAux, y);
             xAux = 0;
-        }catch(Exception e){
-        
+        }catch(FueraDelPlanoException e){
+            throw new FueraDelPlanoException();
         }
     }
     /**
@@ -97,7 +96,6 @@ public abstract class Circulo extends Figura2D{
     public double getRadio() {
         return radio;
     }
-
     /**
      * Cambia el valor del radio del circulo.
      * @param radio El valor a cambiar del circulo.

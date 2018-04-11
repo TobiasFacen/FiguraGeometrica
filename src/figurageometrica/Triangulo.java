@@ -4,9 +4,7 @@
  * and open the template in the editor.
  */
 package figurageometrica;
-
 import static java.lang.Math.sqrt;
-
 /**
  * Clase que representa la figura geometrica triangulo
  * @author Alumno
@@ -44,7 +42,7 @@ public abstract class Triangulo extends Figura2D{
      */
     @Override
     protected void calcularExtremos(){
-    
+        Posicion2D vertice1, vertice2, vertice3;
     }
     /**
      * Calcula el perimetro del triangulo.
@@ -69,14 +67,12 @@ public abstract class Triangulo extends Figura2D{
         superficie = sqrt(auxiliar);
         return superficie;
     }
-
     /**
      * @return lado1 El valor del primer lado del triangulo.
      */
     public double getLado1() {
         return lado1;
     }
-
     /**
      * Cambia el valor del primer lado del triangulo.
      * @param lado1 El valor a cambiar del primer lado del triangulo.
@@ -89,14 +85,12 @@ public abstract class Triangulo extends Figura2D{
             this.lado1 = lado1;
         }
     }
-
     /**
      * @return lado2 El valor del segundo lado del triangulo.
      */
     public double getLado2() {
         return lado2;
     }
-
     /**
      * Cambia el valor del segundo lado del triangulo.
      * @param lado2 El valor a cambiar del segundo lado del triangulo.
@@ -109,14 +103,12 @@ public abstract class Triangulo extends Figura2D{
             this.lado2 = lado2;
         }
     }
-
     /**
      * @return lado3 El valor del tercer lado del triangulo.
      */
     public double getLado3() {
         return lado3;
     }
-
     /**
      * Cambia el valor del tercer lado del triangulo.
      * @param lado3 El valor a cambiar del tercer lado del triangulo.
