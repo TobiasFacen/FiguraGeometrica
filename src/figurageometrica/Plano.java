@@ -17,10 +17,12 @@ public class Plano {
     private static List figuras;
     private static List circulos;
     private static List rectangulos;
+    private static List triangulos;
     public Plano(){
         figuras = new ArrayList<FiguraGeometrica>();
         circulos = new ArrayList<Circulo>();
         rectangulos = new ArrayList<Rectangulo>();
+        triangulos = new ArrayList<Triangulo>();
     }
     /**
      * @param args the command line arguments
@@ -47,6 +49,10 @@ public class Plano {
         getFiguras().add(rectangulo);
         getRectangulos().add(rectangulo);
     }
+    public static void addTriangulo(Triangulo triangulo){
+        getFiguras().add(triangulo);
+        getTriangulos().add(triangulo);
+    }
     /**
      * Compara la posicion del circulo recibido con las figuras en las
      * listas para ver si se superponen entre ellas.
@@ -54,16 +60,39 @@ public class Plano {
      * @return true si la figura se solapa con alguna otra. 
      */
     public static boolean solapamiento(Circulo circulo){
-        Iterator it = figuras.iterator();
+        Iterator it = circulos.iterator();
         boolean seSolapa = false;
-        Figura2D figura;
+        double mediana, resta, distancia;
         while(it.hasNext()){
-            figura = (Figura2D)it.next();
-            if(!figura.equals(circulo)){
+            Circulo figura = (Circulo)it.next();
+            if(!circulo.getId().equals(figura.getId())){
                 if(circulo.getPos().distancia(figura.getPos())
                         < circulo.getRadio()){
                     seSolapa = true;
                 }
+            }
+        }
+        it = rectangulos.iterator();
+        while(it.hasNext()){
+            Rectangulo figura = (Rectangulo)it.next();
+            if(calculoParaSolapamiento(circulo, (Rectangulo)figura)){
+               seSolapa = true; 
+            }
+        }
+        it = triangulos.iterator();
+        while(it.hasNext()){
+            Triangulo figura = (Triangulo)it.next();
+            distancia = circulo.getPos().distancia(figura.getPos());
+            resta = distancia - circulo.getRadio();
+            if(resta < (figura.calculoMedianas(figura.getLado1(),
+                    figura.getLado2(), figura.getLado3()))*2/3){
+                seSolapa = true;
+            }else if(resta < (figura.calculoMedianas(figura.getLado2(),
+                    figura.getLado1(), figura.getLado3())*2/3)){
+                seSolapa = true;
+            }else if(resta < (figura.calculoMedianas(figura.getLado3(),
+                    figura.getLado1(), figura.getLado2()))*2/3){
+                seSolapa = true;
             }
         }
         return seSolapa;
@@ -75,12 +104,12 @@ public class Plano {
      * @return true si la figura se solapa con alguna otra. 
      */
     public static boolean solapamiento(Rectangulo rectangulo){
-        Iterator it = figuras.iterator();
-        Figura2D figura;
+        Iterator it = rectangulos.iterator();
+        double distancia, resta;
         boolean seSolapa = false;
         while(it.hasNext()){
-            figura = (Figura2D)it.next();
-            if(!figura.equals(rectangulo)){
+            Rectangulo figura = (Rectangulo)it.next();
+            if(!rectangulo.getId().equals(figura.getId())){
                 if(rectangulo.getPos().distancia(figura.getPos())
                         < rectangulo.getAltura()/2){
                     seSolapa = true;
@@ -88,6 +117,94 @@ public class Plano {
                         < rectangulo.getBase()/2){
                     seSolapa = true;
                 }
+            }
+        }
+        it = circulos.iterator();
+        while(it.hasNext()){
+            Circulo figura = (Circulo)it.next();
+            if(calculoParaSolapamiento((Circulo)figura, rectangulo)){
+                seSolapa = true;
+            }
+        }
+        it = triangulos.iterator();
+        while(it.hasNext()){
+            Triangulo figura = (Triangulo)it.next();
+            distancia = rectangulo.getPos().distancia(figura.getPos());
+            if((distancia - (figura.calculoMedianas(figura.getLado1(),
+                    figura.getLado2(), figura.getLado3())*2/3) < 
+                    (rectangulo.getAltura()/2)) || (distancia - 
+                    (figura.calculoMedianas(figura.getLado1(), 
+                            figura.getLado2(), figura.getLado3())*2/3)) < 
+                    (rectangulo.getBase()/2)){
+                seSolapa = true;
+            }else if((distancia - (figura.calculoMedianas(figura.getLado2(),
+                    figura.getLado1(), figura.getLado3())*2/3) < 
+                    (rectangulo.getAltura()/2)) || (distancia - 
+                    (figura.calculoMedianas(figura.getLado2(), 
+                            figura.getLado1(), figura.getLado3())*2/3)) < 
+                    (rectangulo.getBase()/2)){
+                seSolapa = true;
+            }else if((distancia - (figura.calculoMedianas(figura.getLado3(),
+                    figura.getLado1(), figura.getLado2())*2/3) < 
+                    (rectangulo.getAltura()/2)) || (distancia - 
+                    (figura.calculoMedianas(figura.getLado3(), 
+                            figura.getLado1(), figura.getLado2())*2/3)) < 
+                    (rectangulo.getBase()/2)){
+                seSolapa = true;
+            }
+        }
+        return seSolapa;
+    }
+    public static boolean solapamiento(Triangulo triangulo){
+        boolean seSolapa = false;
+        double mediana1, distancia, resta, mediana2, mediana3;
+        Iterator it;
+        it = triangulos.iterator();
+        mediana1 = triangulo.calculoMedianas(triangulo.getLado1(),
+                        triangulo.getLado2(), triangulo.getLado3());
+        mediana2 = triangulo.calculoMedianas(triangulo.getLado2(),
+                        triangulo.getLado1(), triangulo.getLado3());
+        mediana3 = triangulo.calculoMedianas(triangulo.getLado3(),
+                        triangulo.getLado1(), triangulo.getLado2());
+        while(it.hasNext()){
+            Triangulo figura = (Triangulo)it.next();
+            if(!triangulo.getId().equals(figura.getId())){
+                distancia = triangulo.getPos().distancia(figura.getPos());
+                if(distancia < (mediana1*2/3)){
+                    seSolapa = true;
+                }else if(distancia < (mediana2*2/3)){
+                    seSolapa = true;
+                }else if(distancia < (mediana3*2/3)){
+                    seSolapa = true;
+                }
+            }
+        }
+        it = circulos.iterator();
+        while(it.hasNext()){
+            Circulo figura = (Circulo)it.next();
+            distancia = triangulo.getPos().distancia(figura.getPos());
+            resta = distancia - figura.getRadio();
+            if(resta < (mediana1*2/3)){
+                seSolapa = true;
+            }else if(resta < (mediana2*2/3)){
+                seSolapa = true;
+            }else if(resta < (mediana3*2/3)){
+                seSolapa = true;
+            }
+        }
+        it = rectangulos.iterator();
+        while(it.hasNext()){
+            Rectangulo figura = (Rectangulo)it.next();
+            distancia = triangulo.getPos().distancia(figura.getPos());
+            if((distancia - (mediana1*2/3)) < (figura.getAltura()/2) ||
+                    (distancia - (mediana1*2/3)) < (figura.getBase()/2)){
+                seSolapa = true;
+            }else if((distancia - (mediana2*2/3)) < (figura.getAltura()/2) ||
+                    (distancia - (mediana2*2/3)) < (figura.getBase()/2)){
+                seSolapa = true;
+            }else if((distancia - (mediana3*2/3)) < (figura.getAltura()/2) ||
+                    (distancia - (mediana3*2/3)) < (figura.getBase()/2)){
+                seSolapa = true;
             }
         }
         return seSolapa;
@@ -174,6 +291,18 @@ public class Plano {
             System.out.println("" + figura.getId());
         }
     }
+    private static boolean calculoParaSolapamiento(Circulo circulo, 
+            Rectangulo rectangulo){
+        double resta;
+        boolean seSolapa = false;
+        resta = circulo.getPos().distancia(rectangulo.getPos()) - 
+                circulo.getRadio();
+        if(resta < (rectangulo.getAltura()/2) || 
+                resta < (rectangulo.getBase()/2)){
+            seSolapa = true;
+        }
+        return seSolapa;
+    }
     /**
      * Devuelve la lista de figuras.
      * @return figuras la lista de figuras.
@@ -215,5 +344,11 @@ public class Plano {
      */
     public static void setRectangulos(List aRectangulos) {
         rectangulos = aRectangulos;
+    }
+    public static List getTriangulos(){
+        return triangulos;
+    }
+    public static void setTriangulos(List aTriangulos){
+        triangulos = aTriangulos;
     }
 }

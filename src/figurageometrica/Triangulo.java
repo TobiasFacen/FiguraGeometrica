@@ -45,13 +45,10 @@ public abstract class Triangulo extends Figura2D{
     @Override
     protected void calcularExtremos() throws FueraDelPlanoException{
         Posicion2D vertice1, vertice2, vertice3;
-        double mediana1, mediana2, mediana3, auxiliar;
-        auxiliar = (2*((lado2*lado2)+(lado3*lado3))-(lado1*lado1));
-        mediana1 = (sqrt(auxiliar))/2;
-        auxiliar = (2*((lado1*lado1)+(lado3*lado3))-(lado2*lado2));
-        mediana2 = (sqrt(auxiliar))/2;
-        auxiliar = (2*((lado1*lado1)+(lado2*lado2))-(lado3*lado3));
-        mediana3 = (sqrt(auxiliar))/2;
+        double mediana1, mediana2, mediana3;
+        mediana1 = calculoMedianas(getLado1(),getLado2(),getLado3());
+        mediana2 = calculoMedianas(getLado2(),getLado1(),getLado3());
+        mediana3 = calculoMedianas(getLado3(),getLado1(),getLado2());
         try{
             vertice1 = new Posicion2D((((getPos().getX())*2*mediana1)/3),
             (((getPos().getY())*2*mediana1)/3));
@@ -93,6 +90,13 @@ public abstract class Triangulo extends Figura2D{
                 (semiperimetro-getLado2())*(semiperimetro-getLado3());
         superficie = sqrt(auxiliar);
         return superficie;
+    }
+    protected double calculoMedianas(double lado1, double lado2,
+            double lado3){
+        double mediana, auxiliar;
+        auxiliar = (2*((lado2*lado2)+(lado3*lado3))-(lado1*lado1));
+        mediana = sqrt(auxiliar);
+        return mediana;
     }
     /**
      * @return lado1 El valor del primer lado del triangulo.
