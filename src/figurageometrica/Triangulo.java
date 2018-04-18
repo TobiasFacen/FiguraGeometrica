@@ -91,6 +91,13 @@ public abstract class Triangulo extends Figura2D{
         superficie = sqrt(auxiliar);
         return superficie;
     }
+    /**
+     * Calcula la mediana del primer lado de dato del triangulo.
+     * @param lado1 El lado del que se va a calcular la mediana.
+     * @param lado2 El segundo lado del triangulo.
+     * @param lado3 El tercer lado del triangulo.
+     * @return mediana El valor de la mediana calculada.
+     */
     protected double calculoMedianas(double lado1, double lado2,
             double lado3){
         double mediana, auxiliar;

@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 /**
+ * Clase que representa un plano en 2D.
  * @author Alumno
  */
 public class Plano {
@@ -18,6 +19,9 @@ public class Plano {
     private static List circulos;
     private static List rectangulos;
     private static List triangulos;
+    /**
+     * Crea un nuevo plano.
+     */
     public Plano(){
         figuras = new ArrayList<FiguraGeometrica>();
         circulos = new ArrayList<Circulo>();
@@ -49,6 +53,11 @@ public class Plano {
         getFiguras().add(rectangulo);
         getRectangulos().add(rectangulo);
     }
+    /**
+     * Agrega la figura geometrica triangulo a la lista de figuras
+     * geometricas y a la lista de triangulos.
+     * @param triangulo El triangulo a agregar.
+     */
     public static void addTriangulo(Triangulo triangulo){
         getFiguras().add(triangulo);
         getTriangulos().add(triangulo);
@@ -155,6 +164,12 @@ public class Plano {
         }
         return seSolapa;
     }
+    /**
+     * Compara la posicion del triangulo recibido con la de las figuras 
+     * geometricas en las listas para ver si se superponen entre ellas.
+     * @param triangulo El triangulo a comparar con las otras figuras.
+     * @return true Si la figura se solapa con alguna otra.
+     */
     public static boolean solapamiento(Triangulo triangulo){
         boolean seSolapa = false;
         double mediana1, distancia, resta, mediana2, mediana3;
@@ -345,9 +360,17 @@ public class Plano {
     public static void setRectangulos(List aRectangulos) {
         rectangulos = aRectangulos;
     }
+    /**
+     * Devuelve la lista de las figuras geometricas <code>Triangulos</code>.
+     * @return triangulos La lista de triangulos.
+     */
     public static List getTriangulos(){
         return triangulos;
     }
+    /**
+     * Cambia la lista de triangulos ya creada por la lista recibida.
+     * @param aTriangulos La lista nueva de triangulos.
+     */
     public static void setTriangulos(List aTriangulos){
         triangulos = aTriangulos;
     }

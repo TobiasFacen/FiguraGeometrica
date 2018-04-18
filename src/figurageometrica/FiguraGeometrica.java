@@ -17,6 +17,7 @@ public abstract class FiguraGeometrica {
     }
     /**
      * Metodo abstracto a implementar por cada una de las figuras geometricas.
+     * @return superficie La superficie calculada.
      */
     protected abstract double superficie();
 }

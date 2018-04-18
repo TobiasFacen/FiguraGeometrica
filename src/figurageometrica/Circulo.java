@@ -91,6 +91,7 @@ public abstract class Circulo extends Figura2D{
         }
     }
     /**
+     * Devuelve el valor del radio del circulo.
      * @return radio El valor del radio del circulo.
      */
     public double getRadio() {
